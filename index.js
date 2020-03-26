@@ -277,6 +277,53 @@ app.get('/app/singleproduct', (req, res) => {
         });
 })
 
+//https://af09856f.ngrok.io/app/createOrder?shop=mibc-store.myshopify.com&quantity=10&varient=33115215003692
+app.get('/app/createOrder', (req, res) => {
+    const { shop, varient, quantity } = req.query;
+    const url = "https://" + shop + "/admin/orders.json"
+
+    const orderObject = {
+        "order": {
+            "email": "imran.bilal@blueeast.com",
+            "fulfillment_status": "fulfilled",
+            "send_receipt": true,
+            "send_fulfillment_receipt": true,
+            "line_items": [
+                {
+                    "variant_id": varient,
+                    "quantity": quantity
+                }
+            ]
+        }
+    }
+
+    let options = {
+        method: 'POST',
+        uri: url,
+        json: true,
+        resolveWithFullResponse: true,//added this to view status code
+        headers: {
+            'X-Shopify-Access-Token': process.env.ACCESS_TOKEN,
+            'content-type': 'application/json'
+        },
+        body: orderObject//pass new order object - NEW - request-promise problably updated
+    };
+
+    request.post(options)
+        .then(function (response) {
+            console.log(response.body);
+            if (response.statusCode == 201) {
+                res.json(response.body);
+            } else {
+                res.json(false);
+            }
+
+        })
+        .catch(function (err) {
+            console.log(err);
+            res.json(false);
+        });
+})
 
 
 

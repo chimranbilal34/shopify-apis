@@ -1,17 +1,19 @@
+// 20200326160915
+// https://af09856f.ngrok.io/app/createOrder?shop=mibc-store.myshopify.com&quantity=5&varient=33115215003692
 {
   "order": {
-    "id": 2039894868012,
-    "email": "",
-    "closed_at": null,
-    "created_at": "2020-03-26T06:50:34-04:00",
-    "updated_at": "2020-03-26T06:50:34-04:00",
-    "number": 21,
+    "id": 2039915905068,
+    "email": "imran.bilal@blueeast.com",
+    "closed_at": "2020-03-26T07:09:13-04:00",
+    "created_at": "2020-03-26T07:09:12-04:00",
+    "updated_at": "2020-03-26T07:09:14-04:00",
+    "number": 24,
     "note": null,
-    "token": "30793abe8f5fdf9f4c51ae8f3520b0d1",
+    "token": "af9f709041a13961bbcdaa5e993d0284",
     "gateway": "",
     "test": false,
-    "total_price": "0.00",
-    "subtotal_price": "0.00",
+    "total_price": "50.00",
+    "subtotal_price": "50.00",
     "total_weight": 0,
     "total_tax": "0.00",
     "taxes_included": false,
@@ -19,29 +21,29 @@
     "financial_status": "paid",
     "confirmed": true,
     "total_discounts": "0.00",
-    "total_line_items_price": "0.00",
+    "total_line_items_price": "50.00",
     "cart_token": null,
     "buyer_accepts_marketing": false,
-    "name": "#1021",
+    "name": "#1024",
     "referring_site": null,
     "landing_site": null,
     "cancelled_at": null,
     "cancel_reason": null,
-    "total_price_usd": "0.00",
+    "total_price_usd": "0.31",
     "checkout_token": null,
     "reference": null,
     "user_id": null,
     "location_id": null,
     "source_identifier": null,
     "source_url": null,
-    "processed_at": "2020-03-26T06:50:34-04:00",
+    "processed_at": "2020-03-26T07:09:12-04:00",
     "device_id": null,
     "phone": null,
     "customer_locale": null,
     "app_id": 3585793,
     "browser_ip": null,
     "landing_site_ref": null,
-    "order_number": 1021,
+    "order_number": 1024,
     "discount_applications": [],
     "discount_codes": [],
     "note_attributes": [],
@@ -49,19 +51,19 @@
     "processing_method": "",
     "checkout_id": null,
     "source_name": "3585793",
-    "fulfillment_status": null,
+    "fulfillment_status": "fulfilled",
     "tax_lines": [],
     "tags": "",
-    "contact_email": null,
-    "order_status_url": "https://mibc-store.myshopify.com/36332863532/orders/30793abe8f5fdf9f4c51ae8f3520b0d1/authenticate?key=efeb4f055c5a6951019c35852dba4bf7",
+    "contact_email": "imran.bilal@blueeast.com",
+    "order_status_url": "https://mibc-store.myshopify.com/36332863532/orders/af9f709041a13961bbcdaa5e993d0284/authenticate?key=c1f0b4a17f44c4ec7c5be80c0a9cb3b5",
     "presentment_currency": "PKR",
     "total_line_items_price_set": {
       "shop_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       },
       "presentment_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       }
     },
@@ -87,21 +89,21 @@
     },
     "subtotal_price_set": {
       "shop_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       },
       "presentment_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       }
     },
     "total_price_set": {
       "shop_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       },
       "presentment_money": {
-        "amount": "0.00",
+        "amount": "50.00",
         "currency_code": "PKR"
       }
     },
@@ -117,11 +119,11 @@
     },
     "line_items": [
       {
-        "id": 4413241786412,
+        "id": 4413301981228,
         "variant_id": 33115215003692,
         "title": "Ball and Bat new 4",
-        "quantity": 1,
-        "sku": "",
+        "quantity": 5,
+        "sku": "2",
         "variant_title": null,
         "vendor": "Ball and Bat",
         "fulfillment_service": "manual",
@@ -133,18 +135,18 @@
         "variant_inventory_management": null,
         "properties": [],
         "product_exists": true,
-        "fulfillable_quantity": 1,
-        "grams": 0,
-        "price": "0.00",
+        "fulfillable_quantity": 0,
+        "grams": 11000,
+        "price": "10.00",
         "total_discount": "0.00",
-        "fulfillment_status": null,
+        "fulfillment_status": "fulfilled",
         "price_set": {
           "shop_money": {
-            "amount": "0.00",
+            "amount": "10.00",
             "currency_code": "PKR"
           },
           "presentment_money": {
-            "amount": "0.00",
+            "amount": "10.00",
             "currency_code": "PKR"
           }
         },
@@ -159,14 +161,105 @@
           }
         },
         "discount_allocations": [],
-        "admin_graphql_api_id": "gid://shopify/LineItem/4413241786412",
+        "admin_graphql_api_id": "gid://shopify/LineItem/4413301981228",
         "tax_lines": []
       }
     ],
-    "fulfillments": [],
+    "fulfillments": [
+      {
+        "id": 1899798233132,
+        "order_id": 2039915905068,
+        "status": "success",
+        "created_at": "2020-03-26T07:09:13-04:00",
+        "service": "manual",
+        "updated_at": "2020-03-26T07:09:13-04:00",
+        "tracking_company": null,
+        "shipment_status": null,
+        "location_id": 43499618348,
+        "line_items": [
+          {
+            "id": 4413301981228,
+            "variant_id": 33115215003692,
+            "title": "Ball and Bat new 4",
+            "quantity": 5,
+            "sku": "2",
+            "variant_title": null,
+            "vendor": "Ball and Bat",
+            "fulfillment_service": "manual",
+            "product_id": 4802682454060,
+            "requires_shipping": true,
+            "taxable": true,
+            "gift_card": false,
+            "name": "Ball and Bat new 4",
+            "variant_inventory_management": null,
+            "properties": [],
+            "product_exists": true,
+            "fulfillable_quantity": 0,
+            "grams": 11000,
+            "price": "10.00",
+            "total_discount": "0.00",
+            "fulfillment_status": "fulfilled",
+            "price_set": {
+              "shop_money": {
+                "amount": "10.00",
+                "currency_code": "PKR"
+              },
+              "presentment_money": {
+                "amount": "10.00",
+                "currency_code": "PKR"
+              }
+            },
+            "total_discount_set": {
+              "shop_money": {
+                "amount": "0.00",
+                "currency_code": "PKR"
+              },
+              "presentment_money": {
+                "amount": "0.00",
+                "currency_code": "PKR"
+              }
+            },
+            "discount_allocations": [],
+            "admin_graphql_api_id": "gid://shopify/LineItem/4413301981228",
+            "tax_lines": []
+          }
+        ],
+        "tracking_number": null,
+        "tracking_numbers": [],
+        "tracking_url": null,
+        "tracking_urls": [],
+        "receipt": {},
+        "name": "#1024.1",
+        "admin_graphql_api_id": "gid://shopify/Fulfillment/1899798233132"
+      }
+    ],
     "refunds": [],
     "total_tip_received": "0.0",
-    "admin_graphql_api_id": "gid://shopify/Order/2039894868012",
-    "shipping_lines": []
+    "admin_graphql_api_id": "gid://shopify/Order/2039915905068",
+    "shipping_lines": [],
+    "customer": {
+      "id": 3013969510444,
+      "email": "imran.bilal@blueeast.com",
+      "accepts_marketing": false,
+      "created_at": "2020-03-26T07:06:31-04:00",
+      "updated_at": "2020-03-26T07:09:13-04:00",
+      "first_name": null,
+      "last_name": null,
+      "orders_count": 2,
+      "state": "disabled",
+      "total_spent": "50.00",
+      "last_order_id": 2039915905068,
+      "note": null,
+      "verified_email": true,
+      "multipass_identifier": null,
+      "tax_exempt": false,
+      "phone": null,
+      "tags": "",
+      "last_order_name": "#1024",
+      "currency": "PKR",
+      "accepts_marketing_updated_at": "2020-03-26T07:06:32-04:00",
+      "marketing_opt_in_level": null,
+      "admin_graphql_api_id": "gid://shopify/Customer/3013969510444"
+    }
   }
 }
