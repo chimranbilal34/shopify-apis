@@ -1,0 +1,419 @@
+// https://af09856f.ngrok.io/app/allproducts?shop=mibc-store.myshopify.com
+{
+  "products": [
+    {
+      "id": 4802644181036,
+      "title": "Ball and Bat new 3",
+      "body_html": "<strong>Good bat!</strong>",
+      "vendor": "Ball and Bat",
+      "product_type": "Ball and Bat",
+      "created_at": "2020-03-26T06:24:24-04:00",
+      "handle": "ball-and-bat-new-3",
+      "updated_at": "2020-03-26T06:24:24-04:00",
+      "published_at": "2020-03-26T06:24:24-04:00",
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "Ball and Bat  &quot;Big Air&quot;, Barnes & Noble, John's Fav",
+      "admin_graphql_api_id": "gid://shopify/Product/4802644181036",
+      "variants": [
+        {
+          "id": 33115121647660,
+          "product_id": 4802644181036,
+          "title": "Default Title",
+          "price": "0.00",
+          "sku": "",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": null,
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-26T06:24:24-04:00",
+          "updated_at": "2020-03-26T06:24:24-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34932858355756,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33115121647660"
+        }
+      ],
+      "options": [
+        {
+          "id": 6213224562732,
+          "product_id": 4802644181036,
+          "name": "Title",
+          "position": 1,
+          "values": ["Default Title"]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4802682454060,
+      "title": "Ball and Bat new 4",
+      "body_html": "<strong>Good bat!</strong>",
+      "vendor": "Ball and Bat",
+      "product_type": "Ball and Bat",
+      "created_at": "2020-03-26T06:28:20-04:00",
+      "handle": "ball-and-bat-new-4",
+      "updated_at": "2020-03-26T06:28:20-04:00",
+      "published_at": "2020-03-26T06:28:20-04:00",
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "Ball and Bat  &quot;Big Air&quot;, Barnes & Noble, John's Fav",
+      "admin_graphql_api_id": "gid://shopify/Product/4802682454060",
+      "variants": [
+        {
+          "id": 33115215003692,
+          "product_id": 4802682454060,
+          "title": "Default Title",
+          "price": "0.00",
+          "sku": "",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": null,
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-26T06:28:20-04:00",
+          "updated_at": "2020-03-26T06:28:20-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34932956037164,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33115215003692"
+        }
+      ],
+      "options": [
+        {
+          "id": 6213265621036,
+          "product_id": 4802682454060,
+          "name": "Title",
+          "position": 1,
+          "values": ["Default Title"]
+        }
+      ],
+      "images": [
+        {
+          "id": 15150049296428,
+          "product_id": 4802682454060,
+          "position": 1,
+          "created_at": "2020-03-26T06:28:20-04:00",
+          "updated_at": "2020-03-26T06:28:20-04:00",
+          "alt": null,
+          "width": 3024,
+          "height": 4032,
+          "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/ebf7f3a5c1657cc039020ae79c22d905.jpg?v=1585218500",
+          "variant_ids": [],
+          "admin_graphql_api_id": "gid://shopify/ProductImage/15150049296428"
+        }
+      ],
+      "image": {
+        "id": 15150049296428,
+        "product_id": 4802682454060,
+        "position": 1,
+        "created_at": "2020-03-26T06:28:20-04:00",
+        "updated_at": "2020-03-26T06:28:20-04:00",
+        "alt": null,
+        "width": 3024,
+        "height": 4032,
+        "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/ebf7f3a5c1657cc039020ae79c22d905.jpg?v=1585218500",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/15150049296428"
+      }
+    },
+    {
+      "id": 4800165150764,
+      "title": "Burton Custom Freestyle 151",
+      "body_html": "<strong>Good snowboard!</strong>",
+      "vendor": "Burton",
+      "product_type": "Snowboard",
+      "created_at": "2020-03-26T03:02:49-04:00",
+      "handle": "burton-custom-freestyle-151",
+      "updated_at": "2020-03-26T03:02:50-04:00",
+      "published_at": "2020-03-26T03:02:49-04:00",
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "&quot;Big Air&quot;, Barnes & Noble, John's Fav",
+      "admin_graphql_api_id": "gid://shopify/Product/4800165150764",
+      "variants": [
+        {
+          "id": 33106870468652,
+          "product_id": 4800165150764,
+          "title": "Default Title",
+          "price": "0.00",
+          "sku": "",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": null,
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-26T03:02:50-04:00",
+          "updated_at": "2020-03-26T03:02:50-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34924382781484,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33106870468652"
+        }
+      ],
+      "options": [
+        {
+          "id": 6210507538476,
+          "product_id": 4800165150764,
+          "name": "Title",
+          "position": 1,
+          "values": ["Default Title"]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4800257097772,
+      "title": "New 2 Ball and Bat",
+      "body_html": "<strong>Good bat!</strong>",
+      "vendor": "Ball and Bat",
+      "product_type": "Ball and Bat",
+      "created_at": "2020-03-26T03:09:29-04:00",
+      "handle": "ball-and-bat",
+      "updated_at": "2020-03-26T05:58:33-04:00",
+      "published_at": "2020-03-26T03:09:29-04:00",
+      "template_suffix": null,
+      "published_scope": "web",
+      "tags": "Ball and Bat  &quot;Big Air&quot;, Barnes & Noble, John's Fav",
+      "admin_graphql_api_id": "gid://shopify/Product/4800257097772",
+      "variants": [
+        {
+          "id": 33114495123500,
+          "product_id": 4800257097772,
+          "title": "Black",
+          "price": "1.00",
+          "sku": "",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": null,
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Black",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-26T05:58:33-04:00",
+          "updated_at": "2020-03-26T05:58:33-04:00",
+          "taxable": true,
+          "barcode": null,
+          "grams": 0,
+          "image_id": null,
+          "weight": 0.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34932195754028,
+          "inventory_quantity": 0,
+          "old_inventory_quantity": 0,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33114495123500"
+        }
+      ],
+      "options": [
+        {
+          "id": 6210613018668,
+          "product_id": 4800257097772,
+          "name": "Title",
+          "position": 1,
+          "values": ["Black"]
+        }
+      ],
+      "images": [],
+      "image": null
+    },
+    {
+      "id": 4779656380460,
+      "title": "Tsfirt 1",
+      "body_html": "My shirt",
+      "vendor": "mibc-store",
+      "product_type": "",
+      "created_at": "2020-03-24T08:50:57-04:00",
+      "handle": "tsfirt-1",
+      "updated_at": "2020-03-26T02:05:29-04:00",
+      "published_at": "2020-03-24T08:46:17-04:00",
+      "template_suffix": "",
+      "published_scope": "web",
+      "tags": "",
+      "admin_graphql_api_id": "gid://shopify/Product/4779656380460",
+      "variants": [
+        {
+          "id": 33046749872172,
+          "product_id": 4779656380460,
+          "title": "Default Title",
+          "price": "100.00",
+          "sku": "1",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": "10.00",
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-24T08:50:58-04:00",
+          "updated_at": "2020-03-25T03:41:37-04:00",
+          "taxable": true,
+          "barcode": "",
+          "grams": 10000,
+          "image_id": null,
+          "weight": 10.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34861478182956,
+          "inventory_quantity": 110,
+          "old_inventory_quantity": 110,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33046749872172"
+        }
+      ],
+      "options": [
+        {
+          "id": 6188027707436,
+          "product_id": 4779656380460,
+          "name": "Title",
+          "position": 1,
+          "values": ["Default Title"]
+        }
+      ],
+      "images": [
+        {
+          "id": 15109052923948,
+          "product_id": 4779656380460,
+          "position": 1,
+          "created_at": "2020-03-25T02:30:43-04:00",
+          "updated_at": "2020-03-25T02:30:43-04:00",
+          "alt": null,
+          "width": 1280,
+          "height": 720,
+          "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/11.jpg?v=1585117843",
+          "variant_ids": [],
+          "admin_graphql_api_id": "gid://shopify/ProductImage/15109052923948"
+        }
+      ],
+      "image": {
+        "id": 15109052923948,
+        "product_id": 4779656380460,
+        "position": 1,
+        "created_at": "2020-03-25T02:30:43-04:00",
+        "updated_at": "2020-03-25T02:30:43-04:00",
+        "alt": null,
+        "width": 1280,
+        "height": 720,
+        "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/11.jpg?v=1585117843",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/15109052923948"
+      }
+    },
+    {
+      "id": 4779674796076,
+      "title": "Tshirt 2",
+      "body_html": "My shirt 2",
+      "vendor": "mibc-store",
+      "product_type": "",
+      "created_at": "2020-03-24T08:52:18-04:00",
+      "handle": "tshirt-2",
+      "updated_at": "2020-03-26T02:05:29-04:00",
+      "published_at": "2020-03-24T08:46:17-04:00",
+      "template_suffix": "",
+      "published_scope": "web",
+      "tags": "",
+      "admin_graphql_api_id": "gid://shopify/Product/4779674796076",
+      "variants": [
+        {
+          "id": 33046791847980,
+          "product_id": 4779674796076,
+          "title": "Default Title",
+          "price": "100.00",
+          "sku": "2",
+          "position": 1,
+          "inventory_policy": "deny",
+          "compare_at_price": "100.00",
+          "fulfillment_service": "manual",
+          "inventory_management": "shopify",
+          "option1": "Default Title",
+          "option2": null,
+          "option3": null,
+          "created_at": "2020-03-24T08:52:18-04:00",
+          "updated_at": "2020-03-25T03:41:54-04:00",
+          "taxable": true,
+          "barcode": "2",
+          "grams": 10000,
+          "image_id": null,
+          "weight": 10.0,
+          "weight_unit": "kg",
+          "inventory_item_id": 34861521469484,
+          "inventory_quantity": 100,
+          "old_inventory_quantity": 100,
+          "requires_shipping": true,
+          "admin_graphql_api_id": "gid://shopify/ProductVariant/33046791847980"
+        }
+      ],
+      "options": [
+        {
+          "id": 6188040421420,
+          "product_id": 4779674796076,
+          "name": "Title",
+          "position": 1,
+          "values": ["Default Title"]
+        }
+      ],
+      "images": [
+        {
+          "id": 15109534580780,
+          "product_id": 4779674796076,
+          "position": 1,
+          "created_at": "2020-03-25T02:52:38-04:00",
+          "updated_at": "2020-03-25T02:52:38-04:00",
+          "alt": null,
+          "width": 1280,
+          "height": 720,
+          "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/11_7ae46d76-909d-4e93-a4cf-a4868d07a559.jpg?v=1585119158",
+          "variant_ids": [],
+          "admin_graphql_api_id": "gid://shopify/ProductImage/15109534580780"
+        }
+      ],
+      "image": {
+        "id": 15109534580780,
+        "product_id": 4779674796076,
+        "position": 1,
+        "created_at": "2020-03-25T02:52:38-04:00",
+        "updated_at": "2020-03-25T02:52:38-04:00",
+        "alt": null,
+        "width": 1280,
+        "height": 720,
+        "src": "https://cdn.shopify.com/s/files/1/0363/3286/3532/products/11_7ae46d76-909d-4e93-a4cf-a4868d07a559.jpg?v=1585119158",
+        "variant_ids": [],
+        "admin_graphql_api_id": "gid://shopify/ProductImage/15109534580780"
+      }
+    }
+  ]
+}
