@@ -6,17 +6,22 @@ const cookie = require('cookie');
 const nonce = require('nonce')();
 const querystring = require('querystring');
 const request = require('request-promise');
+const axios = require('axios');
+const fs = require("fs");
+
 
 const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
 // const scopes = 'read_products';
 const scopes = 'write_checkouts, write_customers, write_orders, write_products, write_themes, write_content'
-const forwardingAddress = "https://af09856f.ngrok.io"; // Replace this with your HTTPS Forwarding address
+const forwardingAddress = "https://3ff881bf.ngrok.io"; // Replace this with your HTTPS Forwarding address
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+
+//https://3ff881bf.ngrok.io/shopify?shop=mibc-store.myshopify.com
 app.get('/shopify', (req, res) => {
     const shop = req.query.shop;
     if (shop) {
@@ -78,34 +83,92 @@ app.get('/shopify/callback', (req, res) => {
             code,
         };
 
-        request.post(accessTokenRequestUrl, { json: accessTokenPayload })
-            .then((accessTokenResponse) => {
-                const accessToken = accessTokenResponse.access_token;
-                console.log("Access token is : ", accessToken);
-                // DONE: Use access token to make API call to 'shop' endpoint
-                const shopRequestUrl = 'https://' + shop + '/admin/products.json';
-                const shopRequestHeaders = {
-                    headers: {
-                        'X-Shopify-Access-Token': accessToken,
-                    }
-                };
-
-                request.get(shopRequestUrl, shopRequestHeaders)
-                    .then((shopResponse) => {
-                        res.status(200).end(shopResponse);
+        /*         request.post(accessTokenRequestUrl, { json: accessTokenPayload })
+                    .then((accessTokenResponse) => {
+                        const accessToken = accessTokenResponse.access_token;
+                        console.log("Access token is : ", accessToken);
+                        // DONE: Use access token to make API call to 'shop' endpoint
+                        const shopRequestUrl = 'https://' + shop + '/admin/products.json';
+                        const shopRequestHeaders = {
+                            headers: {
+                                'X-Shopify-Access-Token': accessToken,
+                            }
+                        };
+        
+                        request.get(shopRequestUrl, shopRequestHeaders)
+                            .then((shopResponse) => {
+                                res.status(200).end(shopResponse);
+                            })
+                            .catch((error) => {
+                                res.status(error.statusCode).send(error.error.error_description);
+                            });
                     })
                     .catch((error) => {
                         res.status(error.statusCode).send(error.error.error_description);
-                    });
-            })
-            .catch((error) => {
+                    }); */
+
+
+        request.post(accessTokenRequestUrl, { json: accessTokenPayload })
+            .then(async (accessTokenResponse) => {
+                const accessToken = accessTokenResponse.access_token;
+                console.log("Access token is : ", accessToken);
+                // DONE: Use access token to make API call to 'shop' endpoint
+
+                //Now upload assets
+                const data = await assets(accessToken, shop)
+                console.log("data is :", data)
+                if (data.Ok == 200) {
+                    res.json(
+                        JSON.stringify({
+                            message:
+                                "Assets uploaded successfully "
+                        })
+                    );
+                }
+
+            }).catch((error) => {
+                console.log(error);
                 res.status(error.statusCode).send(error.error.error_description);
             });
-
     } else {
         res.status(400).send('Required parameters missing');
     }
 });
+
+const assets = async (accessToken, shop) => {
+    const apiGetThemeListUrl = 'https://' + shop + '/admin/themes.json';
+    const themeRequestHeaders = {
+        headers: {
+            'X-Shopify-Access-Token': accessToken,
+            timeout: 10000
+        }
+    };
+    const jsfile = './assetsfiles/storetest2.js'
+    const apiThemeResponse = await axios.get(apiGetThemeListUrl, themeRequestHeaders);
+    const themeData = apiThemeResponse.data.themes;
+
+
+    let activeTheme = "";
+    for (const theme of themeData) {
+        if (theme.role === "main") {
+            activeTheme = theme.id;
+            const bufJs = await fs.readFileSync(jsfile);
+            const jsData = {
+                asset: {
+                    key: "assets/storetest2.js",
+                    attachment: bufJs.toString("base64")
+                }
+            };
+
+            const apiPutThemeAssetsUrl = `https://${shop}/admin/themes/${activeTheme}/assets.json`;
+            await axios.put(apiPutThemeAssetsUrl, jsData, themeRequestHeaders);
+
+            return {
+                "Ok": 200
+            }
+        }
+    }
+}
 
 //https://af09856f.ngrok.io/app/createproduct?shop=mibc-store.myshopify.com
 app.get('/app/createproduct', function (req, res) {
