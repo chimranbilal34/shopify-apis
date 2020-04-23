@@ -1,0 +1,83 @@
+{
+  "_id": "5e16de25e2841c4a08b6c0ba",
+  "title": "Product1",
+  "vendor": "Blueeast",
+  "brand": "5e21b83720011c4539a746bd",
+  "description": "Product1 Description",
+  "shortDescription": "Product1 Short Description",
+  "handle": "product-1",
+  "avatar": "",
+  "images": [""],
+  "options": [
+    {
+      "name": "Color",
+      "position": 1,
+      "values": ["Black"]
+    },
+    {
+      "name": "Design",
+      "position": 2,
+      "values": ["Smoke"]
+    }
+  ],
+  "publishedScope": "WEB",
+  "tags": "test-tag",
+  "metaTags": {
+    "metaTitle": "Product1 meta title",
+    "metaDescription": "Product1 Meta Description",
+    "metaKeywords": "Product1,test, product, meta, keywords"
+  },
+  "specificationList": [
+    {
+      "key": "General",
+      "values": [
+        {
+          "key": "Type",
+          "value": ["Passport Organizer"]
+        },
+        {
+          "key": "Ideal For",
+          "value": ["Men's, Women's"]
+        },
+        {
+          "key": "Material",
+          "value": ["Leather, Cloth"]
+        },
+        {
+          "key": "Slot for Cards",
+          "value": ["Yes"]
+        },
+        {
+          "key": "Slot for Passport",
+          "value": ["Yes"]
+        },
+        {
+          "key": "Slot for Cheque Book",
+          "value": ["Yes"]
+        },
+        {
+          "key": "Style Code",
+          "value": ["CDBP040739"]
+        },
+        {
+          "key": "Color Code",
+          "value": ["Black"]
+        }
+      ]
+    },
+    {
+      "key": "Warranty",
+      "values": [
+        {
+          "key": "  ",
+          "value": ["1 Year Newhide warranty"]
+        }
+      ]
+    }
+  ],
+  "universal": true,
+  "hasMultipleOptions": false,
+  "createdAt": "2020-01-09T08:02:45.456Z",
+  "updatedAt": "2020-01-09T08:02:45.456Z",
+  "isDeleted": false
+}

@@ -1,0 +1,404 @@
+<html><head></head><body><div class="product-template__container 
+page-width" id="ProductSection-{{ section.id }}" 
+data-section-id="{{ section.id }}" 
+data-section-type="product" 
+data-enable-history-state="true" 
+data-ajax-enabled="{{ settings.enable_ajax }}">
+<li class="plum">Plum</li>
+</div>
+
+{% unless product == empty %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+  <script type="application/json" id="ModelJson-{{ section.id }}">
+    {{ product.media | where: 'media_type', 'model' | json }}
+  </script>
+{% endunless %}
+
+
+
+{% schema %}
+{
+  &quot;name&quot;: {
+    &quot;da&quot;: &quot;Produktsider&quot;,
+    &quot;de&quot;: &quot;Produktseiten&quot;,
+    &quot;en&quot;: &quot;Product pages&quot;,
+    &quot;es&quot;: &quot;P&#xE1;ginas de productos&quot;,
+    &quot;fi&quot;: &quot;Tuotesivut&quot;,
+    &quot;fr&quot;: &quot;Pages de produits&quot;,
+    &quot;hi&quot;: &quot;&#x909;&#x924;&#x94D;&#x92A;&#x93E;&#x926; &#x92A;&#x947;&#x91C;&quot;,
+    &quot;it&quot;: &quot;Pagine di prodotto&quot;,
+    &quot;ja&quot;: &quot;&#x5546;&#x54C1;&#x30DA;&#x30FC;&#x30B8;&quot;,
+    &quot;ko&quot;: &quot;&#xC81C;&#xD488; &#xD398;&#xC774;&#xC9C0;&quot;,
+    &quot;nb&quot;: &quot;Produktsider&quot;,
+    &quot;nl&quot;: &quot;Productpagina&apos;s&quot;,
+    &quot;pt-BR&quot;: &quot;P&#xE1;ginas de produtos&quot;,
+    &quot;pt-PT&quot;: &quot;P&#xE1;ginas de produtos&quot;,
+    &quot;sv&quot;: &quot;Produktsidor&quot;,
+    &quot;th&quot;: &quot;&#xE2B;&#xE19;&#xE49;&#xE32;&#xE2A;&#xE34;&#xE19;&#xE04;&#xE49;&#xE32;&quot;,
+    &quot;zh-CN&quot;: &quot;&#x4EA7;&#x54C1;&#x9875;&#x9762;&quot;,
+    &quot;zh-TW&quot;: &quot;&#x7522;&#x54C1;&#x9801;&#x9762;&quot;
+  },
+  &quot;settings&quot;: [
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;show_quantity_selector&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Vis antalsv&#xE6;lger&quot;,
+        &quot;de&quot;: &quot;Quantit&#xE4;ts-Auswahl anzeigen&quot;,
+        &quot;en&quot;: &quot;Show quantity selector&quot;,
+        &quot;es&quot;: &quot;Mostrar selector de cantidad&quot;,
+        &quot;fi&quot;: &quot;N&#xE4;yt&#xE4; m&#xE4;&#xE4;r&#xE4;n valitsin&quot;,
+        &quot;fr&quot;: &quot;Afficher le s&#xE9;lecteur de quantit&#xE9;&quot;,
+        &quot;hi&quot;: &quot;&#x92E;&#x93E;&#x924;&#x94D;&#x930;&#x93E; &#x91A;&#x92F;&#x928;&#x915;&#x930;&#x94D;&#x924;&#x93E; &#x926;&#x93F;&#x916;&#x93E;&#x90F;&#x902;&quot;,
+        &quot;it&quot;: &quot;Mostra selettore quantit&#xE0;&quot;,
+        &quot;ja&quot;: &quot;&#x6570;&#x91CF;&#x30BB;&#x30EC;&#x30AF;&#x30BF;&#x30FC;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xC218;&#xB7C9; &#xC120;&#xD0DD;&#xAE30; &#xD45C;&#xC2DC;&quot;,
+        &quot;nb&quot;: &quot;Vis mengdevelger&quot;,
+        &quot;nl&quot;: &quot;Hoeveelheidskiezer weergeven&quot;,
+        &quot;pt-BR&quot;: &quot;Exibir seletor de quantidade&quot;,
+        &quot;pt-PT&quot;: &quot;Mostrar um seletor de quantidade&quot;,
+        &quot;sv&quot;: &quot;Visa kvantitetsv&#xE4;ljare&quot;,
+        &quot;th&quot;: &quot;&#xE41;&#xE2A;&#xE14;&#xE07;&#xE15;&#xE31;&#xE27;&#xE40;&#xE25;&#xE37;&#xE2D;&#xE01;&#xE08;&#xE33;&#xE19;&#xE27;&#xE19;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x663E;&#x793A;&#x6570;&#x91CF;&#x9009;&#x62E9;&#x5668;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x986F;&#x793A;&#x6578;&#x91CF;&#x9078;&#x64C7;&#x5668;&quot;
+      },
+      &quot;default&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;show_variant_labels&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Vis variantlabels&quot;,
+        &quot;de&quot;: &quot;Varianten-Etiketten anzeigen&quot;,
+        &quot;en&quot;: &quot;Show variant labels&quot;,
+        &quot;es&quot;: &quot;Mostrar etiquetas de variantes&quot;,
+        &quot;fi&quot;: &quot;N&#xE4;yt&#xE4; vaihtoehtoiset tarrat&quot;,
+        &quot;fr&quot;: &quot;Afficher le nom des variantes&quot;,
+        &quot;hi&quot;: &quot;&#x935;&#x947;&#x930;&#x93F;&#x90F;&#x902;&#x91F; &#x932;&#x947;&#x92C;&#x932; &#x926;&#x93F;&#x916;&#x93E;&#x90F;&#x902;&quot;,
+        &quot;it&quot;: &quot;Mostra etichette varianti&quot;,
+        &quot;ja&quot;: &quot;&#x30D0;&#x30EA;&#x30A8;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x30E9;&#x30D9;&#x30EB;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xC774;&#xD615; &#xC0C1;&#xD488; &#xB808;&#xC774;&#xBE14; &#xD45C;&#xC2DC;&quot;,
+        &quot;nb&quot;: &quot;Vis variantetiketter&quot;,
+        &quot;nl&quot;: &quot;Variantlabels weergeven&quot;,
+        &quot;pt-BR&quot;: &quot;Exibir etiquetas de variantes&quot;,
+        &quot;pt-PT&quot;: &quot;Mostrar etiquetas de variantes&quot;,
+        &quot;sv&quot;: &quot;Visa variantetiketter&quot;,
+        &quot;th&quot;: &quot;&#xE41;&#xE2A;&#xE14;&#xE07;&#xE1B;&#xE49;&#xE32;&#xE22;&#xE01;&#xE33;&#xE01;&#xE31;&#xE1A;&#xE15;&#xE31;&#xE27;&#xE40;&#xE25;&#xE37;&#xE2D;&#xE01;&#xE2A;&#xE34;&#xE19;&#xE04;&#xE49;&#xE32;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x663E;&#x793A;&#x591A;&#x5C5E;&#x6027;&#x6807;&#x7B7E;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x986F;&#x793A;&#x5B50;&#x985E;&#x9078;&#x9805;&#x6A19;&#x7C64;&quot;
+      },
+      &quot;default&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;show_vendor&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Vis leverand&#xF8;r&quot;,
+        &quot;de&quot;: &quot;Lieferanten anzeigen&quot;,
+        &quot;en&quot;: &quot;Show vendor&quot;,
+        &quot;es&quot;: &quot;Mostrar proveedor&quot;,
+        &quot;fi&quot;: &quot;N&#xE4;yt&#xE4; myyj&#xE4;&quot;,
+        &quot;fr&quot;: &quot;Afficher les vendeurs&quot;,
+        &quot;hi&quot;: &quot;&#x935;&#x93F;&#x915;&#x94D;&#x930;&#x947;&#x924;&#x93E; &#x926;&#x93F;&#x916;&#x93E;&#x90F;&#x902;&quot;,
+        &quot;it&quot;: &quot;Mostra fornitore&quot;,
+        &quot;ja&quot;: &quot;&#x8CA9;&#x58F2;&#x5143;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xACF5;&#xAE09;&#xC5C5;&#xCCB4; &#xD45C;&#xC2DC;&quot;,
+        &quot;nb&quot;: &quot;Vis leverand&#xF8;r&quot;,
+        &quot;nl&quot;: &quot;Leverancier weergeven&quot;,
+        &quot;pt-BR&quot;: &quot;Exibir fornecedor&quot;,
+        &quot;pt-PT&quot;: &quot;Mostrar fornecedor&quot;,
+        &quot;sv&quot;: &quot;Visa s&#xE4;ljare&quot;,
+        &quot;th&quot;: &quot;&#xE41;&#xE2A;&#xE14;&#xE07;&#xE1C;&#xE39;&#xE49;&#xE02;&#xE32;&#xE22;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x663E;&#x793A;&#x5382;&#x5546;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x986F;&#x793A;&#x5EE0;&#x5546;&quot;
+      },
+      &quot;default&quot;: false
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;enable_payment_button&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Vis dynamisk betalingsknap&quot;,
+        &quot;de&quot;: &quot;Dynamischen Checkout Button anzeigen&quot;,
+        &quot;en&quot;: &quot;Show dynamic checkout button&quot;,
+        &quot;es&quot;: &quot;Mostrar bot&#xF3;n de pago din&#xE1;mico&quot;,
+        &quot;fi&quot;: &quot;N&#xE4;yt&#xE4; dynaaminen kassapainike&quot;,
+        &quot;fr&quot;: &quot;Afficher le bouton de passage &#xE0; la caisse dynamique&quot;,
+        &quot;hi&quot;: &quot;&#x921;&#x93E;&#x92F;&#x928;&#x947;&#x92E;&#x93F;&#x915; &#x91A;&#x947;&#x915;&#x906;&#x909;&#x91F; &#x92C;&#x91F;&#x928; &#x926;&#x93F;&#x916;&#x93E;&#x90F;&#x902;&quot;,
+        &quot;it&quot;: &quot;Mostra pulsante di check-out dinamico&quot;,
+        &quot;ja&quot;: &quot;&#x30C0;&#x30A4;&#x30CA;&#x30DF;&#x30C3;&#x30AF;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x30A2;&#x30A6;&#x30C8;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xB3D9;&#xC801; &#xACB0;&#xC81C; &#xBC84;&#xD2BC; &#xD45C;&#xC2DC;&quot;,
+        &quot;nb&quot;: &quot;Vis dynamisk knapp for &#xE5; g&#xE5; til kassen&quot;,
+        &quot;nl&quot;: &quot;Dynamische checkout knop weergeven&quot;,
+        &quot;pt-BR&quot;: &quot;Exibir bot&#xE3;o din&#xE2;mico de finaliza&#xE7;&#xE3;o da compra&quot;,
+        &quot;pt-PT&quot;: &quot;Mostrar o bot&#xE3;o din&#xE2;mico de finaliza&#xE7;&#xE3;o da compra&quot;,
+        &quot;sv&quot;: &quot;Visa dynamiska utcheckningsknappar&quot;,
+        &quot;th&quot;: &quot;&#xE41;&#xE2A;&#xE14;&#xE07;&#xE1B;&#xE38;&#xE48;&#xE21;&#xE0A;&#xE33;&#xE23;&#xE30;&#xE40;&#xE07;&#xE34;&#xE19;&#xE41;&#xE1A;&#xE1A;&#xE44;&#xE14;&#xE19;&#xE32;&#xE21;&#xE34;&#xE01;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x663E;&#x793A;&#x52A8;&#x6001;&#x7ED3;&#x8D26;&#x6309;&#x94AE;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x986F;&#x793A;&#x52D5;&#x614B;&#x7D50;&#x5E33;&#x6309;&#x9215;&quot;
+      },
+      &quot;info&quot;: {
+        &quot;da&quot;: &quot;Den enkelte kunde vil se sin foretrukne betalingsmetode blandt dem, der er tilg&#xE6;ngelige i din butik, f.eks. PayPal eller Apple Pay. [F&#xE5; mere at vide](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;de&quot;: &quot;Jeder Kunde sieht seine bevorzugte Zahlungsmethode aus den in Ihrem Shop verf&#xFC;gbaren Zahlungsmethoden wie PayPal oder Apple Pay. [Mehr Informationen](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;en&quot;: &quot;Each customer will see their preferred payment method from those available on your store, such as PayPal or Apple Pay. [Learn more](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;es&quot;: &quot;Cada cliente ver&#xE1; su forma de pago preferida entre las disponibles en tu tienda, como PayPal o Apple Pay. [M&#xE1;s informaci&#xF3;n](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;fi&quot;: &quot;Kukin asiakas n&#xE4;kee ensisijaisen valintansa kauppasi tarjoamista maksutavoista, esim. PayPal tai Apple Pay. [Lis&#xE4;tietoja](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;fr&quot;: &quot;Chaque client verra son moyen de paiement pr&#xE9;f&#xE9;r&#xE9; parmi ceux qui sont propos&#xE9;s sur votre boutique, tels que PayPal ou Apple Pay. [En savoir plus](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;hi&quot;: &quot;&#x92A;&#x94D;&#x930;&#x924;&#x94D;&#x92F;&#x947;&#x915; &#x917;&#x94D;&#x930;&#x93E;&#x939;&#x915; &#x906;&#x92A;&#x915;&#x947; &#x938;&#x94D;&#x91F;&#x94B;&#x930; &#x92A;&#x930; &#x909;&#x92A;&#x932;&#x92C;&#x94D;&#x927; &#x905;&#x92A;&#x928;&#x940; &#x92A;&#x938;&#x902;&#x926;&#x940;&#x926;&#x93E; &#x92D;&#x941;&#x917;&#x924;&#x93E;&#x928; &#x915;&#x940; &#x935;&#x93F;&#x927;&#x93F; &#x926;&#x947;&#x916;&#x947;&#x902;&#x917;&#x947; &#x91C;&#x948;&#x938;&#x947; PayPal &#x92F;&#x93E; Apple Pay. [&#x905;&#x927;&#x93F;&#x915; &#x91C;&#x93E;&#x928;&#x947;&#x902;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;it&quot;: &quot;Ogni cliente vedr&#xE0; il suo metodo di pagamento preferito tra quelli disponibili nel tuo negozio, come PayPal o Apple Pay. [Maggiori informazioni](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;ja&quot;: &quot;PayPal&#x3084;Apple Pay&#x306A;&#x3069;&#x3001;&#x30B9;&#x30C8;&#x30A2;&#x3067;&#x5229;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x5E0C;&#x671B;&#x306E;&#x6C7A;&#x6E08;&#x65B9;&#x6CD5;&#x304C;&#x304A;&#x5BA2;&#x69D8;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;[&#x8A73;&#x7D30;&#x60C5;&#x5831;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;ko&quot;: &quot;&#xAC01; &#xACE0;&#xAC1D;&#xC740; PayPal &#xB610;&#xB294; Apple Pay&#xC640; &#xAC19;&#xC774; &#xC2A4;&#xD1A0;&#xC5B4;&#xC5D0;&#xC11C; &#xC0AC;&#xC6A9; &#xAC00;&#xB2A5;&#xD55C; &#xC9C0;&#xBD88; &#xBC29;&#xBC95;&#xC744; &#xD655;&#xC778;&#xD560; &#xC218; &#xC788;&#xC2B5;&#xB2C8;&#xB2E4;. [&#xC790;&#xC138;&#xD788; &#xC54C;&#xC544;&#xBCF4;&#xAE30;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;nb&quot;: &quot;Hver enkelt kunde vil se sin foretrukne betalingsm&#xE5;te blant de som er tilgjengelig i butikken din, som PayPal eller Apple Pay. [Finn ut mer](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;nl&quot;: &quot;Elke klant ziet zijn of haar beschikbare voorkeursmethode om af te rekenen, zoals PayPal of Apple Pay. [Meer informatie](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;pt-BR&quot;: &quot;Cada cliente ver&#xE1; a forma de pagamento preferencial dele dentre as dispon&#xED;veis na loja, como PayPal ou Apple Pay. [Saiba mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;pt-PT&quot;: &quot;Cada cliente ir&#xE1; ver o seu m&#xE9;todo de pagamento preferido entre os dispon&#xED;veis na loja, como o PayPal ou Apple Pay. [Saiba mais](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;sv&quot;: &quot;Varje kund kommer att se den f&#xF6;redragna betalningsmetoden fr&#xE5;n de som finns tillg&#xE4;ngliga i din butik, till exempel PayPal eller Apple Pay. [L&#xE4;s mer](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;th&quot;: &quot;&#xE25;&#xE39;&#xE01;&#xE04;&#xE49;&#xE32;&#xE41;&#xE15;&#xE48;&#xE25;&#xE30;&#xE23;&#xE32;&#xE22;&#xE08;&#xE30;&#xE40;&#xE2B;&#xE47;&#xE19;&#xE27;&#xE34;&#xE18;&#xE35;&#xE01;&#xE32;&#xE23;&#xE0A;&#xE33;&#xE23;&#xE30;&#xE40;&#xE07;&#xE34;&#xE19;&#xE17;&#xE35;&#xE48;&#xE15;&#xE49;&#xE2D;&#xE07;&#xE01;&#xE32;&#xE23;&#xE08;&#xE32;&#xE01;&#xE27;&#xE34;&#xE18;&#xE35;&#xE17;&#xE35;&#xE48;&#xE43;&#xE0A;&#xE49;&#xE44;&#xE14;&#xE49;&#xE43;&#xE19;&#xE23;&#xE49;&#xE32;&#xE19;&#xE04;&#xE49;&#xE32;&#xE02;&#xE2D;&#xE07;&#xE04;&#xE38;&#xE13; &#xE40;&#xE0A;&#xE48;&#xE19; PayPal &#xE2B;&#xE23;&#xE37;&#xE2D; Apple Pay [&#xE40;&#xE23;&#xE35;&#xE22;&#xE19;&#xE23;&#xE39;&#xE49;&#xE40;&#xE1E;&#xE34;&#xE48;&#xE21;&#xE40;&#xE15;&#xE34;&#xE21;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;zh-CN&quot;: &quot;&#x6BCF;&#x4F4D;&#x5BA2;&#x6237;&#x90FD;&#x53EF;&#x5728;&#x60A8;&#x5546;&#x5E97;&#x63D0;&#x4F9B;&#x7684;&#x4ED8;&#x6B3E;&#x65B9;&#x5F0F;&#x4E2D;&#x770B;&#x5230;&#x4ED6;&#x4EEC;&#x7684;&#x9996;&#x9009;&#x4ED8;&#x6B3E;&#x65B9;&#x5F0F;&#xFF0C;&#x4F8B;&#x5982; PayPal &#x6216; Apple Pay&#x3002;[&#x4E86;&#x89E3;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;,
+        &quot;zh-TW&quot;: &quot;&#x6BCF;&#x4F4D;&#x9867;&#x5BA2;&#x90FD;&#x53EF;&#x4EE5;&#x5728;&#x60A8;&#x5546;&#x5E97;&#x5167;&#x958B;&#x653E;&#x4F7F;&#x7528;&#x7684;&#x4ED8;&#x6B3E;&#x65B9;&#x5F0F;&#x4E2D;&#x770B;&#x898B;&#x4ED6;&#x5011;&#x504F;&#x597D;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5982; PayPal&#x3001;Apple Pay &#x7B49;&#x3002;[&#x6DF1;&#x5165;&#x77AD;&#x89E3;](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)&quot;
+      },
+      &quot;default&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;show_share_buttons&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Vis knapper til deling p&#xE5; sociale medier&quot;,
+        &quot;de&quot;: &quot;Buttons f&#xFC;r Social Media anzeigen&quot;,
+        &quot;en&quot;: &quot;Show social sharing buttons&quot;,
+        &quot;es&quot;: &quot;Mostrar botones para compartir en redes sociales&quot;,
+        &quot;fi&quot;: &quot;N&#xE4;yt&#xE4; sosiaalisen median jakamispainikkeet&quot;,
+        &quot;fr&quot;: &quot;Affichez les boutons de partage sur les m&#xE9;dias sociaux&quot;,
+        &quot;hi&quot;: &quot;&#x938;&#x94B;&#x936;&#x932; &#x936;&#x947;&#x92F;&#x930;&#x93F;&#x902;&#x917; &#x92C;&#x91F;&#x928; &#x926;&#x93F;&#x916;&#x93E;&#x90F;&#x902;&quot;,
+        &quot;it&quot;: &quot;Mostra i pulsanti per la condivisione sui social&quot;,
+        &quot;ja&quot;: &quot;&#x30BD;&#x30FC;&#x30B7;&#x30E3;&#x30EB;&#x5171;&#x6709;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xC18C;&#xC15C; &#xACF5;&#xC720; &#xBC84;&#xD2BC; &#xD45C;&#xC2DC;&quot;,
+        &quot;nb&quot;: &quot;Vis knapper for deling p&#xE5; sosiale medier&quot;,
+        &quot;nl&quot;: &quot;Knoppen voor sociaal delen weergeven&quot;,
+        &quot;pt-BR&quot;: &quot;Exibir bot&#xF5;es de compartilhamento em redes sociais&quot;,
+        &quot;pt-PT&quot;: &quot;Mostrar bot&#xF5;es de partilha nas redes sociais&quot;,
+        &quot;sv&quot;: &quot;Visa knappar f&#xF6;r delning i sociala medier&quot;,
+        &quot;th&quot;: &quot;&#xE41;&#xE2A;&#xE14;&#xE07;&#xE1B;&#xE38;&#xE48;&#xE21;&#xE2A;&#xE33;&#xE2B;&#xE23;&#xE31;&#xE1A;&#xE41;&#xE0A;&#xE23;&#xE4C;&#xE25;&#xE07;&#xE42;&#xE0B;&#xE40;&#xE0A;&#xE35;&#xE22;&#xE25;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x663E;&#x793A;&#x793E;&#x4EA4;&#x5206;&#x4EAB;&#x6309;&#x94AE;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x986F;&#x793A;&#x793E;&#x7FA4;&#x5206;&#x4EAB;&#x6309;&#x9215;&quot;
+      },
+      &quot;default&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;header&quot;,
+      &quot;content&quot;: {
+        &quot;da&quot;: &quot;Medie&quot;,
+        &quot;de&quot;: &quot;Medien&quot;,
+        &quot;en&quot;: &quot;Media&quot;,
+        &quot;es&quot;: &quot;Medios de comunicaci&#xF3;n&quot;,
+        &quot;fi&quot;: &quot;Media&quot;,
+        &quot;fr&quot;: &quot;Support multim&#xE9;dia&quot;,
+        &quot;hi&quot;: &quot;&#x92E;&#x940;&#x921;&#x93F;&#x92F;&#x93E;&quot;,
+        &quot;it&quot;: &quot;Media&quot;,
+        &quot;ja&quot;: &quot;&#x30E1;&#x30C7;&#x30A3;&#x30A2;&quot;,
+        &quot;ko&quot;: &quot;&#xBBF8;&#xB514;&#xC5B4;&quot;,
+        &quot;nb&quot;: &quot;Medier&quot;,
+        &quot;nl&quot;: &quot;Media&quot;,
+        &quot;pt-BR&quot;: &quot;M&#xED;dia&quot;,
+        &quot;pt-PT&quot;: &quot;Multim&#xE9;dia&quot;,
+        &quot;sv&quot;: &quot;media&quot;,
+        &quot;th&quot;: &quot;&#xE2A;&#xE37;&#xE48;&#xE2D;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x5A92;&#x4F53;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x5A92;&#x9AD4;&quot;
+      },
+      &quot;info&quot;: {
+        &quot;da&quot;: &quot;F&#xE5; mere at vide om [media types](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;de&quot;: &quot;Mehr Informationen &#xFC;ber [Medientypen ](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;en&quot;: &quot;Learn more about [media types](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;es&quot;: &quot;M&#xE1;s informaci&#xF3;n sobre [tipos de archivos multimedia](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;fi&quot;: &quot;Lue lis&#xE4;&#xE4; [mediatyypeist&#xE4;](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;fr&quot;: &quot;En savoir plus sur les [types de supports multim&#xE9;dia](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;hi&quot;: &quot;[&#x92E;&#x940;&#x921;&#x93F;&#x92F;&#x93E; &#x92A;&#x94D;&#x930;&#x915;&#x93E;&#x930;](https://help.shopify.com/manual/products/product-media) &#x915;&#x947; &#x92C;&#x93E;&#x930;&#x947; &#x92E;&#x947;&#x902; &#x914;&#x930; &#x91C;&#x93E;&#x928;&#x947;&#x902;&quot;,
+        &quot;it&quot;: &quot;Scopri di pi&#xF9; sulle [tipologie di file multimediali](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;ja&quot;: &quot;[&#x30E1;&#x30C7;&#x30A3;&#x30A2;&#x306E;&#x30BF;&#x30A4;&#x30D7;](https://help.shopify.com/manual/products/product-media) &#x306B;&#x3064;&#x3044;&#x3066;&#x8A73;&#x3057;&#x304F;&#x77E5;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;[&#xBBF8;&#xB514;&#xC5B4; &#xC720;&#xD615;](https://help.shopify.com/manual/products/product-media)&#xC5D0; &#xB300;&#xD574; &#xC790;&#xC138;&#xD788; &#xC54C;&#xC544;&#xBCF4;&#xAE30;&quot;,
+        &quot;nb&quot;: &quot;L&#xE6;r mer om [medietyper](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;nl&quot;: &quot;Meer informatie over [mediatypen](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;pt-BR&quot;: &quot;Saiba mais sobre [tipos de m&#xED;dia](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;pt-PT&quot;: &quot;Saiba mais sobre [media types](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;sv&quot;: &quot;L&#xE4;s mer om [mediatyper](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;th&quot;: &quot;&#xE14;&#xE39;&#xE02;&#xE49;&#xE2D;&#xE21;&#xE39;&#xE25;&#xE40;&#xE1E;&#xE34;&#xE48;&#xE21;&#xE40;&#xE15;&#xE34;&#xE21;&#xE40;&#xE01;&#xE35;&#xE48;&#xE22;&#xE27;&#xE01;&#xE31;&#xE1A; [&#xE1B;&#xE23;&#xE30;&#xE40;&#xE20;&#xE17;&#xE02;&#xE2D;&#xE07;&#xE2A;&#xE37;&#xE48;&#xE2D;](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;zh-CN&quot;: &quot;&#x8BE6;&#x7EC6;&#x4E86;&#x89E3;[&#x5A92;&#x4F53;&#x7C7B;&#x578B;](https://help.shopify.com/manual/products/product-media)&quot;,
+        &quot;zh-TW&quot;: &quot;&#x6DF1;&#x5165;&#x77AD;&#x89E3; [&#x5A92;&#x9AD4;&#x985E;&#x578B;](https://help.shopify.com/manual/products/product-media)&quot;
+      }
+    },
+    {
+      &quot;type&quot;: &quot;select&quot;,
+      &quot;id&quot;: &quot;media_size&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;St&#xF8;rrelse&quot;,
+        &quot;de&quot;: &quot;Gr&#xF6;&#xDF;e&quot;,
+        &quot;en&quot;: &quot;Size&quot;,
+        &quot;es&quot;: &quot;Tama&#xF1;o&quot;,
+        &quot;fi&quot;: &quot;Koko&quot;,
+        &quot;fr&quot;: &quot;Taille&quot;,
+        &quot;hi&quot;: &quot;&#x906;&#x915;&#x93E;&#x930;&quot;,
+        &quot;it&quot;: &quot;Dimensione&quot;,
+        &quot;ja&quot;: &quot;&#x30B5;&#x30A4;&#x30BA;&quot;,
+        &quot;ko&quot;: &quot;&#xC0AC;&#xC774;&#xC988;&quot;,
+        &quot;nb&quot;: &quot;St&#xF8;rrelse&quot;,
+        &quot;nl&quot;: &quot;Grootte&quot;,
+        &quot;pt-BR&quot;: &quot;Tamanho&quot;,
+        &quot;pt-PT&quot;: &quot;Tamanho&quot;,
+        &quot;sv&quot;: &quot;Storlek&quot;,
+        &quot;th&quot;: &quot;&#xE02;&#xE19;&#xE32;&#xE14;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x5927;&#x5C0F;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x5C3A;&#x5BF8;&quot;
+      },
+      &quot;options&quot;: [
+        {
+          &quot;value&quot;: &quot;small&quot;,
+          &quot;label&quot;: {
+            &quot;da&quot;: &quot;Lille&quot;,
+            &quot;de&quot;: &quot;Klein&quot;,
+            &quot;en&quot;: &quot;Small&quot;,
+            &quot;es&quot;: &quot;Peque&#xF1;o&quot;,
+            &quot;fi&quot;: &quot;Pieni&quot;,
+            &quot;fr&quot;: &quot;Petit&quot;,
+            &quot;hi&quot;: &quot;&#x91B;&#x94B;&#x91F;&#x93E;&quot;,
+            &quot;it&quot;: &quot;Piccolo&quot;,
+            &quot;ja&quot;: &quot;&#x30B9;&#x30E2;&#x30FC;&#x30EB;&quot;,
+            &quot;ko&quot;: &quot;&#xC2A4;&#xBAB0;&quot;,
+            &quot;nb&quot;: &quot;Liten&quot;,
+            &quot;nl&quot;: &quot;Klein&quot;,
+            &quot;pt-BR&quot;: &quot;Pequeno&quot;,
+            &quot;pt-PT&quot;: &quot;Pequeno&quot;,
+            &quot;sv&quot;: &quot;Liten&quot;,
+            &quot;th&quot;: &quot;&#xE40;&#xE25;&#xE47;&#xE01;&quot;,
+            &quot;zh-CN&quot;: &quot;&#x5C0F;&quot;,
+            &quot;zh-TW&quot;: &quot;&#x5C0F;&#x578B;&quot;
+          }
+        },
+        {
+          &quot;value&quot;: &quot;medium&quot;,
+          &quot;label&quot;: {
+            &quot;da&quot;: &quot;Medium&quot;,
+            &quot;de&quot;: &quot;Mittel&quot;,
+            &quot;en&quot;: &quot;Medium&quot;,
+            &quot;es&quot;: &quot;Mediano&quot;,
+            &quot;fi&quot;: &quot;Keskisuuri&quot;,
+            &quot;fr&quot;: &quot;Moyenne&quot;,
+            &quot;hi&quot;: &quot;&#x92E;&#x927;&#x94D;&#x92F;&#x92E;&quot;,
+            &quot;it&quot;: &quot;Medio&quot;,
+            &quot;ja&quot;: &quot;&#x4E2D;&quot;,
+            &quot;ko&quot;: &quot;&#xBCF4;&#xD1B5;&quot;,
+            &quot;nb&quot;: &quot;Middels&quot;,
+            &quot;nl&quot;: &quot;Gemiddeld&quot;,
+            &quot;pt-BR&quot;: &quot;M&#xE9;dio&quot;,
+            &quot;pt-PT&quot;: &quot;M&#xE9;dio&quot;,
+            &quot;sv&quot;: &quot;Medium&quot;,
+            &quot;th&quot;: &quot;&#xE1B;&#xE32;&#xE19;&#xE01;&#xE25;&#xE32;&#xE07;&quot;,
+            &quot;zh-CN&quot;: &quot;&#x4E2D;&#x7B49;&quot;,
+            &quot;zh-TW&quot;: &quot;&#x4E2D;&#x7B49;&quot;
+          }
+        },
+        {
+          &quot;value&quot;: &quot;large&quot;,
+          &quot;label&quot;: {
+            &quot;da&quot;: &quot;Stor&quot;,
+            &quot;de&quot;: &quot;Gro&#xDF;&quot;,
+            &quot;en&quot;: &quot;Large&quot;,
+            &quot;es&quot;: &quot;Grande&quot;,
+            &quot;fi&quot;: &quot;Suuri&quot;,
+            &quot;fr&quot;: &quot;Grande&quot;,
+            &quot;hi&quot;: &quot;&#x92C;&#x921;&#x93C;&#x93E;&quot;,
+            &quot;it&quot;: &quot;Grande&quot;,
+            &quot;ja&quot;: &quot;&#x5927;&quot;,
+            &quot;ko&quot;: &quot;&#xB77C;&#xC9C0;&quot;,
+            &quot;nb&quot;: &quot;Stor&quot;,
+            &quot;nl&quot;: &quot;Groot&quot;,
+            &quot;pt-BR&quot;: &quot;Grande&quot;,
+            &quot;pt-PT&quot;: &quot;Grande&quot;,
+            &quot;sv&quot;: &quot;Stor&quot;,
+            &quot;th&quot;: &quot;&#xE43;&#xE2B;&#xE0D;&#xE48;&quot;,
+            &quot;zh-CN&quot;: &quot;&#x5927;&quot;,
+            &quot;zh-TW&quot;: &quot;&#x5927;&#x578B;&quot;
+          }
+        },
+        {
+          &quot;value&quot;: &quot;full&quot;,
+          &quot;label&quot;: {
+            &quot;da&quot;: &quot;Fuld bredde&quot;,
+            &quot;de&quot;: &quot;Volle Breite&quot;,
+            &quot;en&quot;: &quot;Full-width&quot;,
+            &quot;es&quot;: &quot;Ancho completo&quot;,
+            &quot;fi&quot;: &quot;T&#xE4;ysi leveys&quot;,
+            &quot;fr&quot;: &quot;Pleine largeur&quot;,
+            &quot;hi&quot;: &quot;&#x92A;&#x942;&#x930;&#x94D;&#x923; &#x91A;&#x94C;&#x921;&#x93C;&#x93E;&#x908;&quot;,
+            &quot;it&quot;: &quot;Intera larghezza&quot;,
+            &quot;ja&quot;: &quot;&#x5168;&#x5E45;&quot;,
+            &quot;ko&quot;: &quot;&#xC804;&#xCCB4; &#xD3ED;&quot;,
+            &quot;nb&quot;: &quot;Full bredde&quot;,
+            &quot;nl&quot;: &quot;Volledige breedte&quot;,
+            &quot;pt-BR&quot;: &quot;Largura completa&quot;,
+            &quot;pt-PT&quot;: &quot;Largura completa&quot;,
+            &quot;sv&quot;: &quot;Full bredd&quot;,
+            &quot;th&quot;: &quot;&#xE40;&#xE15;&#xE47;&#xE21;&#xE04;&#xE27;&#xE32;&#xE21;&#xE01;&#xE27;&#xE49;&#xE32;&#xE07;&quot;,
+            &quot;zh-CN&quot;: &quot;&#x5168;&#x5BBD;&quot;,
+            &quot;zh-TW&quot;: &quot;&#x5B8C;&#x6574;&#x5BEC;&#x5EA6;&quot;
+          }
+        }
+      ],
+      &quot;default&quot;: &quot;medium&quot;
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;enable_image_zoom&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Aktiv&#xE9;r billedzoom&quot;,
+        &quot;de&quot;: &quot;Foto-Zoom zulassen&quot;,
+        &quot;en&quot;: &quot;Enable image zoom&quot;,
+        &quot;es&quot;: &quot;Habilitar zoom de imagen&quot;,
+        &quot;fi&quot;: &quot;Ota kuvan zoomaus k&#xE4;ytt&#xF6;&#xF6;n&quot;,
+        &quot;fr&quot;: &quot;Activer le zoom d&apos;image&quot;,
+        &quot;hi&quot;: &quot;&#x907;&#x92E;&#x947;&#x91C; &#x91C;&#x93C;&#x942;&#x92E; &#x938;&#x915;&#x94D;&#x937;&#x92E; &#x915;&#x930;&#x947;&#x902;&quot;,
+        &quot;it&quot;: &quot;Abilita lo zoom dell&apos;immagine&quot;,
+        &quot;ja&quot;: &quot;&#x753B;&#x50CF;&#x30BA;&#x30FC;&#x30E0;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xC774;&#xBBF8;&#xC9C0; &#xD655;&#xB300; &#xC0AC;&#xC6A9;&quot;,
+        &quot;nb&quot;: &quot;Aktiver bildezoom&quot;,
+        &quot;nl&quot;: &quot;Inzoomen op afbeelding inschakelen&quot;,
+        &quot;pt-BR&quot;: &quot;Habilitar o zoom da imagem&quot;,
+        &quot;pt-PT&quot;: &quot;Ativar o zoom da imagem&quot;,
+        &quot;sv&quot;: &quot;Aktivera bildzoom&quot;,
+        &quot;th&quot;: &quot;&#xE40;&#xE1B;&#xE34;&#xE14;&#xE43;&#xE0A;&#xE49;&#xE01;&#xE32;&#xE23;&#xE0B;&#xE39;&#xE21;&#xE20;&#xE32;&#xE1E;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x542F;&#x7528;&#x56FE;&#x7247;&#x7F29;&#x653E;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x555F;&#x7528;&#x5716;&#x7247;&#x7E2E;&#x653E;&quot;
+      },
+      &quot;default&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;checkbox&quot;,
+      &quot;id&quot;: &quot;enable_video_looping&quot;,
+      &quot;label&quot;: {
+        &quot;da&quot;: &quot;Aktiv&#xE9;r looping af videoer&quot;,
+        &quot;de&quot;: &quot;Videschleife aktivieren&quot;,
+        &quot;en&quot;: &quot;Enable video looping&quot;,
+        &quot;es&quot;: &quot;Habilitar la reproducci&#xF3;n de video en bucle&quot;,
+        &quot;fi&quot;: &quot;Ota k&#xE4;ytt&#xF6;&#xF6;n videosilmukka&quot;,
+        &quot;fr&quot;: &quot;Activer le bouclage de la vid&#xE9;o&quot;,
+        &quot;hi&quot;: &quot;&#x935;&#x940;&#x921;&#x93F;&#x92F;&#x94B; &#x932;&#x942;&#x92A;&#x93F;&#x902;&#x917; &#x938;&#x915;&#x94D;&#x937;&#x92E; &#x915;&#x930;&#x947;&#x902;&quot;,
+        &quot;it&quot;: &quot;Abilita la riproduzione in loop dei video&quot;,
+        &quot;ja&quot;: &quot;&#x30D3;&#x30C7;&#x30AA;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x6709;&#x52B9;&#x306B;&#x3059;&#x308B;&quot;,
+        &quot;ko&quot;: &quot;&#xB3D9;&#xC601;&#xC0C1; &#xB8E8;&#xD504;&quot;,
+        &quot;nb&quot;: &quot;Aktiver l&#xF8;kkeavspilling av video&quot;,
+        &quot;nl&quot;: &quot;Video-looping inschakelen&quot;,
+        &quot;pt-BR&quot;: &quot;Habilitar loop de v&#xED;deo&quot;,
+        &quot;pt-PT&quot;: &quot;Ativar ciclo de v&#xED;deo&quot;,
+        &quot;sv&quot;: &quot;Aktivera video-loopning&quot;,
+        &quot;th&quot;: &quot;&#xE40;&#xE1B;&#xE34;&#xE14;&#xE43;&#xE0A;&#xE49;&#xE07;&#xE32;&#xE19;&#xE01;&#xE32;&#xE23;&#xE27;&#xE19;&#xE0B;&#xE49;&#xE33;&#xE27;&#xE34;&#xE14;&#xE35;&#xE42;&#xE2D;&quot;,
+        &quot;zh-CN&quot;: &quot;&#x542F;&#x7528;&#x89C6;&#x9891;&#x5FAA;&#x73AF;&quot;,
+        &quot;zh-TW&quot;: &quot;&#x555F;&#x7528;&#x5F71;&#x7247;&#x5FAA;&#x74B0;&#x529F;&#x80FD;&quot;
+      },
+      &quot;default&quot;: false
+    }
+  ]
+}
+{% endschema %}
+</body></html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Test</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="inner first">Hello</div>
+        <div class="inner second add-to-cart1">And</div>
+        <div class="inner third">Goodbye</div>
+        <button type="submit" name="add" onclick="return checkCommi(event)"
+            class="commi-add-to-cart commi-add-to-cart-btn add-to-cart bordered uppercase">
+            <span>
+                <span {% if settings.language_enable %}data-translate="products.product.add_to_cart"
+                    {% endif %}>{{ 'products.product.add_to_cart' | t }}</span>
+            </span>
+        </button>
+    </div>
+      <p class="demo">A Paragraph</p>
+      <button type="button" onclick="addToCart()">Try it</button>
+    </div>
+
+    <script src="button.js"></script>
+  </body>
+</html>
