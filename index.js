@@ -10,9 +10,10 @@ const axios = require('axios');
 const fs = require("fs");
 const bodyParser = require('body-parser');
 const async = require('async')
-
+const path = require('path');
+var ls = require('local-storage');
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/mibc-store-products";
+var url = "mongodb://localhost:27017/mibc-store1-products";
 app.use('/webhooks', bodyParser.raw({ type: 'application/json' }))
 // support parsing of application/json type post data
 app.use(bodyParser.json());
@@ -21,9 +22,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const apiKey = process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
+
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
+
 // const scopes = 'read_products';
 const scopes = 'write_checkouts, write_customers, write_orders, write_products, write_themes, write_content'
-const forwardingAddress = "https://affd6b16.ngrok.io"; // Replace this with your HTTPS Forwarding address
+const forwardingAddress = "https://4593ca5dbf38.ngrok.io"; // Replace this with your HTTPS Forwarding address without slash
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -31,13 +36,27 @@ app.get('/', (req, res) => {
 
 
 app.post('/hook', (req, res) => {
-    console.log(req.body)
+    console.log(JSON.stringify(req.body))
     res.send('Hook route');
+})
+
+app.post('/account/install', (req, res) => {
+    console.log(req.body)
+})
+
+app.get('/test', (req, res) => {
+    const { shop } = req.query;
+    ls.set('shop', shop);
+    console.log('Here is a shop-----------/test route', shop)
+    res.render('index');
+    // res.sendFile(path.join(__dirname + '/index.html'));
 })
 
 //https://3ff881bf.ngrok.io/shopify?shop=mibc-store.myshopify.com
 app.get('/shopify', (req, res) => {
     const shop = req.query.shop;
+    // const shop = ls.get('shop');
+    console.log('Here is a shop-----------' , shop)
     if (shop) {
         const state = nonce();
         const redirectUri = forwardingAddress + '/shopify/callback';
@@ -48,6 +67,8 @@ app.get('/shopify', (req, res) => {
             '&redirect_uri=' + redirectUri;
 
         res.cookie('state', state);
+        // res.sendFile(path.join(__dirname + '/index.html'));
+        // ls.clear();
         res.redirect(installUrl);
     } else {
         return res.status(400).send('Missing shop parameter. Please add ?shop=your-development-shop.myshopify.com to your request');
@@ -109,7 +130,7 @@ app.get('/shopify/callback', (req, res) => {
                 // DONE: Use access token to make API call to 'shop' endpoint
 
 
-                const shopRequestUrl = 'https://' + shop + '/admin/products.json';
+                const shopRequestUrl = 'https://' + shop + '/admin/shop.json';
                 const shopRequestHeaders = {
                     'X-Shopify-Access-Token': accessToken,
                 };
@@ -118,8 +139,8 @@ app.get('/shopify/callback', (req, res) => {
                     .then((shopResponse) => {
                         console.log(shopResponse)
 
-                        res.redirect('https://mibc-store.myshopify.com/')
-                        // res.status(200).end(shopResponse);
+                        // res.redirect('https://mibc-store.myshopify.com/')
+                        res.status(200).end(shopResponse);
                     })
                     .catch((error) => {
                         res.status(error.statusCode).send(error.error.error_description);
@@ -165,6 +186,9 @@ app.get('/shopify/callback', (req, res) => {
         res.status(400).send('Required parameters missing');
     }
 });
+
+
+
 
 const liquidFileCode = async (accessToken, shop) => {
     const apiGetThemeListUrl = 'https://' + shop + '/admin/themes.json';
@@ -305,21 +329,6 @@ app.get('/app/update', function (req, res) {
             "variants": [
                 {
                     "id": 123456
-                },
-                {
-                    "id": 789065
-                },
-                {
-                    "id": 1233456
-                },
-                {
-                    "id": 7890645
-                },
-                {
-                    "id": 1234356
-                },
-                {
-                    "id": 78922065
                 }
             ]
         }
@@ -417,16 +426,35 @@ app.get('/app/allproducts', async (req, res) => {
                 // console.log(data.products)
                 async.eachSeries(arshopResponse.products, function (item, callback) {
                     counter = counter + 1
-                    console.log("Here is item :", item);
+                    //     console.log("Here is item :", item);
+                    item["storeName"] = "mibc-store.myshopify.com"
 
+                    //Object Mapping
+                    let product = {}
+                    // product._id = item._id
+                    product.title = item.title
+                    product.vendor = item.vendor
+                    product.brand = item.storeName
+                    product.shortDescription = item.shortDescription || ' '
+                    product.handle = item.handle
+                    product.avatar = item.image.src || ' '
+                    product.options = item.options
+                    product.publishedScope = item.published_scope || ' '
+                    product.tags = item.tags
+                    product.metaTags = item.metaTags || ' '
+                    product.specificationList = item.specificationList
+                    product.universal = true
+                    product.hasMultipleOptions = item.hasMultipleOptions || false
+                    product.createdAt = item.created_at
+                    product.updatedAt = item.updated_at
+                    product.isDeleted = false
 
-
-
+                    console.log('Here is a object :', product)
 
                     MongoClient.connect(url, async function (err, db) {
                         if (err) throw err;
-                        item["storeName"] = "mibc-store.myshopify.com"
-                        db.collection("products").insertOne(item, function (err, result) {
+                        // item["storeName"] = "mibc-store.myshopify.com"
+                        db.collection("products").insertOne(product, function (err, result) {
                             if (err) throw err;
                             console.log("Number of documents inserted");
                             db.close();
@@ -561,6 +589,8 @@ const secretKey = '4b6532e09b6bf66bc3a9d029c0f728ef4caef1b587afc3737a581217c86ef
 
 app.post('/webhooks/orders/create', async (req, res) => {
     console.log(' We got an order!')
+
+    console.log('Shopname is :', req.get('X-Shopify-Shop-Domain'))
     // we'll compare the hmac to our own hash
     const hmac = req.get('X-Shopify-Hmac-Sha256')
 

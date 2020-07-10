@@ -1,29 +1,58 @@
-/* const Shopify = require('shopify-api-node');
+const Shopify = require('shopify-api-node');
+const express = require('express')
+const app= express();
 const fs = require('fs');
-const shopify = new Shopify({
-    shopName: 'mibc-store.myshopify.com',
-    accessToken: '628ba74abb479d543f177eb85e1de1c5'
-});
- */
 // const shopify = new Shopify({
 //     shopName: 'mibc-store.myshopify.com',
-//     apiKey: '8e28de12a37707693f0d0ee7bc83ef7f',
-//     password: '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'
+//     accessToken: '628ba74abb479d543f177eb85e1de1c5'
 // });
+ 
 
-/* shopify.order
-    .list({ limit: 5 })
-    .then((orders) => {
-        console.log(orders)
-        fs.writeFile('old-orders.json', JSON.stringify(orders), (err, data) => {
-            if (err) {
-                throw err
-            }
-            console.log('Write scuccessfully')
+app.get('/', (req, res) => {
+    const shopify = new Shopify({
+        shopName: 'mibc-store.myshopify.com',
+        apiKey: '8e28de12a37707693f0d0ee7bc83ef7f',
+        password: 'f27e5dc11d1423ec0bea28d0ea2616af'
+    });
+    shopify.order
+        .list({ limit: 5 })
+        .then((orders) => {
+            console.log(orders)
+            res.send(orders)
+            fs.writeFile('ordernewwwww-api.json', JSON.stringify(orders), (err, data) => {
+                if (err) {
+                    throw err
+                }
+                console.log('Write scuccessfully')
+            })
         })
-    })
-    .catch((err) => console.error(err));
- */
+        .catch((err) => console.error(err));
+})
+
+app.get('/update',async (req, res) => {
+    const shopify = new Shopify({
+        shopName: 'mibc-store.myshopify.com',
+        apiKey: '8e28de12a37707693f0d0ee7bc83ef7f',
+        password: 'f27e5dc11d1423ec0bea28d0ea2616af'
+    });
+    try {
+        const itemParams = {
+            tags: ["abc-testing", 'first_reminder'].join(', '),
+        };
+        const order = await shopify.order.update('2153050472492', itemParams);
+        console.log('Updated Order is : ', order);
+        return order;
+    } catch (error) {
+        console.log('Not Update')
+    }
+})
+
+app.listen(3000, () => {
+console.log('server liste on port 3000')  
+})
+
+
+
 /* async function createOrder() {
     const orderObject = {
 
@@ -59,7 +88,7 @@ MongoClient.connect(url, function (err, db) {
     });
 
 }); */
-
+/* 
 require('isomorphic-fetch')
 const Koa = require('koa');
 const router = require('koa-router');
@@ -107,19 +136,19 @@ const webhook = receiveWebhook({ secret: SHOPIFY_API_SECRET });
 
 router.post('/webhooks/products/create', webhook, () => {
     /* handle products create */
-    console.log('Product Created')
-});
-router.post('/webhooks/orders/create', webhook, () => {
-    /* handle orders create */
-    console.log('Order Created')
-});
+    // console.log('Product Created')
+// });
+// router.post('/webhooks/orders/create', webhook, () => {
+//     /* handle orders create */
+//     console.log('Order Created')
+// });
 
-router.get('*', verifyRequest(), () => {
-    /* app code */
-});
+// router.get('*', verifyRequest(), () => {
+//     /* app code */
+// });
 
-app.use(router.allowedMethods());
-app.use(router.routes());
+// app.use(router.allowedMethods());
+// app.use(router.routes());
 
 
 
