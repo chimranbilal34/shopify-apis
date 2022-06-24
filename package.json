@@ -24,7 +24,7 @@
     "fs": "0.0.1-security",
     "isomorphic-fetch": "^2.2.1",
     "js-beautify": "^1.10.3",
-    "jsdom": "^16.2.1",
+    "jsdom": "^16.5.0",
     "koa": "^2.11.0",
     "koa-router": "^8.0.8",
     "koa-session": "^5.13.1",
